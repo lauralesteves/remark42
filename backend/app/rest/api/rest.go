@@ -66,6 +66,7 @@ type Rest struct {
 	EmojiEnabled               bool
 	SimpleView                 bool
 	ProxyCORS                  bool
+	Sites                      []string
 	SendJWTHeader              bool
 	AllowedAncestors           []string // sets Content-Security-Policy "frame-ancestors ..."
 	SubscribersOnly            bool
@@ -448,6 +449,7 @@ func (s *Rest) configCtrl(w http.ResponseWriter, r *http.Request) {
 		SimpleView            bool     `json:"simple_view"`
 		SendJWTHeader         bool     `json:"send_jwt_header"`
 		SubscribersOnly       bool     `json:"subscribers_only"`
+		Sites                 []string `json:"sites"`
 	}{
 		Version:               s.Version,
 		EditDuration:          int(s.DataService.EditDuration.Seconds()),
@@ -468,6 +470,7 @@ func (s *Rest) configCtrl(w http.ResponseWriter, r *http.Request) {
 		SimpleView:            s.SimpleView,
 		SendJWTHeader:         s.SendJWTHeader,
 		SubscribersOnly:       s.SubscribersOnly,
+		Sites:                 s.Sites,
 	}
 
 	cnf.Auth = []string{}

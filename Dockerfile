@@ -64,7 +64,7 @@ WORKDIR /app
 RUN \
   if [ -z "$SKIP_ADMIN_BUILD" ]; then \
     npm ci --legacy-peer-deps && \
-    PUBLIC_URL=/admin npm run build; \
+    REACT_APP_API_URL= PUBLIC_URL=/admin npm run build; \
   else \
     echo 'Skip admin UI build'; \
   fi

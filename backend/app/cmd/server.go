@@ -606,6 +606,7 @@ func (s *ServerCommand) newServerApp(ctx context.Context) (*serverApp, error) {
 		WebFS:                      webFS,
 		AdminRoot:                  s.AdminRoot,
 		AdminFS:                    adminFS,
+		Sites:                      s.Sites,
 		RemarkURL:                  s.RemarkURL,
 		ImageProxy:                 imgProxy,
 		CommentFormatter:           commentFormatter,
